@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Update</h2>
+<p>Edit a record in the MongoDB database collection.</p>
+<form method="POST" action="{{ url_for('edit_post', mongoid=mongoid) }}">
+  <p>
+    Your name:
+    <input type="text" id="fname" name="fname" value="{{doc.name}}" /><br />
+  </p>
+  <p>
+    Message:
+    <textarea id="fmessage" name="fmessage">{{doc.message}}</textarea>
+  </p>
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Save" />
+  </p>
+</form>
+
+
+<!-- MINE -->
+<form method="POST" action="{{ url_for('edit_post', mongoid=mongoid) }}">
+  <p>
+    Your username:
+    <input type="text" id="user" name="user" value="{{doc.name}}" /><br />
+  </p>
+  <p>`
+    Select theme park ride: (Theme Park - Ride Name)
+    <select id="ride" name="ride">
+      <option value="Six Flags Great Adventure - Kingda Ka">Six Flags Great Adventure - Kingda Ka</option>
+      <option value="Six Flags Great Adventure - El Toro">Six Flags Great Adventure - El Toro</option>
+      <option value="Cedar Point - Top Thrill 2">Cedar Point - Top Thrill 2</option>
+      <option value="Cedar Point - Power Tower">Cedar Point - Power Tower</option>
+      <option value="Disney's Animal Kingdom - Expedition Everest">Disney's Animal Kingdom - Expedition Everest</option>
+      <option value="Disney's Animal Kingdom - Avatar: Flight of Passage">Disney's Animal Kingdom - Avatar: Flight of Passage</option>
+      <option value="Disney's Magic Kingdom - Space Mountain">Disney's Magic Kingdom - Space Mountain</option>
+    </select>
+  </p>
+
+  <label for="ride_rating">Ride rating: (1 - worst, 5 - best)</label>
+
+  <label for="rating1">1</label>
+  <input type="radio" id="rating1" name="ride_rating" value="1">
+
+  <label for="rating2">2</label>
+  <input type="radio" id="rating2" name="ride_rating" value="2">
+
+  <label for="rating3">3</label>
+  <input type="radio" id="rating3" name="ride_rating" value="3">
+
+  <label for="rating4">4</label>
+  <input type="radio" id="rating4" name="ride_rating" value="4">
+
+  <label for="rating5">5</label>
+  <input type="radio" id="rating5" name="ride_rating" value="5">
+
+
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Save" />
+  </p>
+</form>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block container %}
+<h2>Create</h2>
+<p>Create a new record in the MongoDB database collection.</p>
+<form method="POST" action="{{ url_for('create_post') }}">
+  <p>Your name: <input type="text" id="fname" name="fname" /><br /></p>
+  <p>
+    Message:
+    <textarea type="text" id="fmessage" name="fmessage"></textarea>
+  </p>
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Post" />
+  </p>
+</form>
+
+<!-- MINE -->
+<form method="POST" action="{{ url_for('create_post') }}">
+  <p>
+    Your username: 
+    <input type="text" id="user" name="user" required/><br />
+  </p>
+
+  <p>
+    Select theme park ride: (Theme Park - Ride Name)
+    <select id="ride" name="ride">
+      <option value="Six Flags Great Adventure - Kingda Ka">Six Flags eat Adventure - Kingda Ka</option>
+      <option value="Six Flags Great Adventure - El Toro">Six Flags Great Adventure - El Toro</option>
+      <option value="Cedar Point - Top Thrill 2">Cedar Point - Top Thrill 2</option>
+      <option value="Cedar Point - Power Tower">Cedar Point - Power Tower</option>
+      <option value="Disney's Animal Kingdom - Expedition Everest">Disney's Animal Kingdom - Expedition Everest</option>
+      <option value="Disney's Animal Kingdom - Avatar: Flight of Passage">Disney's Animal Kingdom - Avatar: Flight of Passage</option>
+      <option value="Disney's Magic Kingdom - Space Mountain">Disney's Magic Kingdom - Space Mountain</option>
+    </select>
+  </p>
+
+  <p>
+    Ride rating: (1 - worst, 5 - best)
+    <input type="radio" id="rating1" name="ride_rating" value="1">
+    <input type="radio" id="rating2" name="ride_rating" value="2">
+    <input type="radio" id="rating3" name="ride_rating" value="3">
+    <input type="radio" id="rating4" name="ride_rating" value="4">
+    <input type="radio" id="rating5" name="ride_rating" value="5">
+  </p>
+
+  <p>
+    Ride review:
+    <textarea type="text" id="ride_review" name="ride_review" required></textarea>
+  </p>
+
+  <p>
+    <a href="{{ url_for('read')}}">Cancel</a>
+    <input type="submit" name="post-btn" value="Post" />
+  </p>
+</form>
+{% endblock %}
